@@ -1,0 +1,10 @@
+// IT IS NOT RECOMMENDED TO CHANGE THIS FILE.
+// We cannot put it into "custom" folder because it is impossible to @import file with dynamic path.
+// Variables should be included here and nowhere else.
+@import "../../../sass/default/variables";
+// ..so we can override them in custom theme.
+@import "./site/variables";
+// Then default styles will be compiled.
+@import "../../../sass/style";
+// Then custom styles will be compiled.
+@import "./site/index";

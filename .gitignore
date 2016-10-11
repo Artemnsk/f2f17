@@ -1,4 +1,8 @@
-custom
+# Ignore custom alterations.
+custom/*
+# ... except "documentation".
+!custom/example
+
 node_modules
 
 # Ignore dev and version control system files
