@@ -1,0 +1,63 @@
+body {
+  & * {
+    transition: all 0s;
+  }
+  .region-region-page-top {
+    position: relative;
+    float: left;
+    width: 100%;
+    background: $color-tertiary-2-dark;
+    padding: 10px 15px 5px;
+    text-align: center;
+    z-index: 1000;
+  }
+  header.navbar {
+    &.affix-top {
+      position: absolute !important;
+    }
+    &.affix {
+      position: fixed !important;
+      top: 0 !important;
+    }
+    // Needed for smooth slideDown/Up.
+    min-height: 0;
+    // Needed to recount top parameter asap (otherwise JS works buggy).
+    transition: background 0.3s ease;
+    .dropdown-menu .expand-wrapper-outer {
+      padding: 40px 0;
+      overflow-y: auto;
+    }
+  }
+  background: $color-tertiary-1;
+  padding: 0;
+  margin: 0;
+  font-family: $font-family-main;
+  color: $color-theme-3;
+  * {
+    box-sizing: border-box;
+    @include element-transition(all 0.3s ease);
+  }
+  section {
+    .field-name-body,
+    .field-name-field-cover-image {
+      margin-bottom: 40px;
+      text-align: center;
+      @include full-size-image;
+    }
+    .field-name-body {
+      text-align: left;
+      .field-item > h2 {
+        font-family: $font-family-main-bold;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .mobile-left {
+    @include element-transition($mobile-menu-transition);
+    position: relative;
+    right: $mobile-menu-width;
+    &.mobile-menu-collapse {
+      right: 0;
+    }
+  }
+}

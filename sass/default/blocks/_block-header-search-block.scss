@@ -1,0 +1,9 @@
+.block.header-search-block {
+  @include main-search-block;
+  .form-control {
+    @include text-field;
+    background: transparent;
+    font-size: $font-size-h1;
+    border: none;
+  }
+}

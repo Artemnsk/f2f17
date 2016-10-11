@@ -1,0 +1,159 @@
+@mixin list-style {
+  width: 100%;
+  margin-bottom: 4%;
+  min-height: 300px;
+  .views-row {
+    width: 30%;
+    margin-right: 4.96%;
+    margin-bottom: 4%;
+    float: left;
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+    &:nth-child(4n) {
+      clear: left;
+    }
+    .node,
+    .view-mode-conference_topics_item {
+      padding: 40px;
+      box-sizing: border-box;
+      border-radius: 2px;
+      border: 1px solid $color-tertiary-2-base !important;
+      background: $color-tertiary-1;
+      min-height: 240px;
+      * {
+        transition: none;
+      }
+      &:hover {
+        background: $color-theme-1;
+        * {
+          color: $color-tertiary-1 !important;
+          border-color: $color-tertiary-1 !important;
+        }
+      }
+      @include breakpoint('l') {
+        padding: 20px;
+      }
+      @include breakpoint('m-') {
+        padding: 40px 20px;
+      }
+      @include breakpoint('s-') {
+        padding: 20px;
+        min-height: initial !important;
+      }
+    }
+  }
+}
+
+@mixin topic-list {
+  margin-top: 30px !important;
+  .views-row {
+    width: 22%;
+    margin-right: 4%;
+    margin-bottom: 4%;
+    cursor: pointer;
+    text-align: left;
+    &:nth-child(3n) {
+      margin-right: 4%;
+    }
+    &:nth-child(4n) {
+      clear: none;
+      margin-right: 0;
+    }
+    &:nth-child(5n) {
+      clear: left;
+    }
+    .view-mode-conference_topics_item {
+      min-height: 250px;
+    }
+  }
+  @include breakpoint('m-') {
+    margin: 0 auto !important;
+    .views-row {
+      width: 48% !important;
+      &:nth-child(3n),
+      &:nth-child(4n),
+      &:nth-child(5n) {
+        margin-right: initial;
+        clear: initial;
+      }
+      &:nth-child(odd) {
+        margin-right: 4%;
+        clear: left;
+      }
+      &:nth-child(even) {
+        margin-right: 0;
+      }
+    }
+  }
+  @include breakpoint('s-') {
+    margin: 0 auto !important;
+    .views-row {
+      width: 100% !important;
+      margin-right: 0;
+    }
+  }
+}
+
+@mixin speaker-list {
+  .views-row {
+    width: 30%;
+    margin-right: 4.96%;
+    margin-bottom: 4%;
+    text-align: left;
+    cursor: pointer;
+    padding: 0 !important;
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+    &:nth-child(4n) {
+      clear: left;
+    }
+    h3 {
+      font-family: $font-family-main-bold;
+      text-transform: uppercase;
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+    h4 {
+      font-family: $font-family-main-bold;
+      font-size: 14px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      @include green-line;
+      &:after {
+        bottom: -10px;
+      }
+    }
+    .node {
+      min-height: 385px;
+    }
+    .group-social-icons {
+      margin-top: 20px;
+      .field {
+        display: inline-block;
+      }
+    }
+    @include breakpoint('m-') {
+      width: 48% !important;
+      &:nth-child(3n),
+      &:nth-child(4n),
+      &:nth-child(5n) {
+        margin-right: initial;
+        clear: initial;
+      }
+      &:nth-child(odd) {
+        margin-right: 4%;
+        clear: left;
+      }
+      &:nth-child(even) {
+        margin-right: 0;
+      }
+    }
+    @include breakpoint('s-') {
+      width: 100% !important;
+      margin-right: 0;
+      min-height: initial !important;
+    }
+  }
+}

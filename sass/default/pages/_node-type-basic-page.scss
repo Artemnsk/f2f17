@@ -1,0 +1,11 @@
+body.node-type-basic-page,
+body.page-user {
+  .main-container {
+    .container {
+      > section,
+      > aside {
+        margin: 40px 0;
+      }
+    }
+  }
+}

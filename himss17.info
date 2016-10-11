@@ -1,0 +1,19 @@
+name = HIMSS17
+description = Parallax Design for HIMSS Annual Conference 17
+core = 7.x
+base theme = bootstrap
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[region_page_top] = 'Page top'
+regions[region_main_menu] = 'Main menu'
+regions[parallax_content] = 'Parallax Content'
+regions[sidebar_first] = 'Sidebar First (Left)'
+regions[content] = 'Content'
+regions[content_suffix] = 'Content Suffix'
+regions[sidebar_second] = 'Sidebar Second (Right)'
+regions[footer] = 'Footer'
+regions[region_page_bottom] = 'Page bottom'
