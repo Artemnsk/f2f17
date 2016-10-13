@@ -1,8 +1,23 @@
+.node {
+  .field-name-field-cover-image {
+    margin-bottom: 40px;
+    text-align: center;
+    @include full-size-image();
+  }
+  .field-name-body {
+    margin-bottom: 40px;
+    .field-item > h2 {
+      font-family: $font-family-main-bold;
+      margin-bottom: 20px;
+    }
+  }
+}
+
 .node.view-mode-full {
   margin: 40px 0;
-
-  // general styles for titles
-
+  > .field-name-body {
+    margin: 10px 0 20px;
+  }
   h1 {
     @include title-style($color-theme-1, 40px);
     @include green-line;
@@ -23,102 +38,4 @@
   h4 {
     @include title-style($color-theme-3, 16px);
   }
-
-  > .field-name-body {
-    margin: 10px 0 20px;
-  }
-  &.node-session {
-    .boolean-label {
-      display: none;
-    }
-    .text-green {
-      color: $color-theme-1;
-    }
-    .flag-outer-agenda {
-      float: right;
-      .fa-stack {
-        float: left;
-        .fa-calendar {
-          font-size: 22px;
-          margin-left: 8px;
-          margin-top: 10px;
-        }
-        .fa-plus {
-          font-size: 10px;
-          left: initial;
-          right: -10px;
-          top: 5px;
-        }
-      }
-      .flag-title {
-        color: $color-theme-3;
-      }
-    }
-    .group-location-and-room {
-      overflow: hidden;
-      .field-name-location-icon {
-        float: left;
-      }
-    }
-  }
-
-  @include accordion;
-}
-
-.view-mode-conference_topics_item {
-  .field-name-conference-topic-title {
-    h3 {
-      font-family: $font-family-main-bold;
-      font-size: 18px;
-      margin: 0;
-      text-transform: uppercase;
-      a {
-        color: $color-theme-3;
-      }
-      margin-bottom: 25px;
-      @include green-line;
-      &:after {
-        bottom: -10px;
-      }
-    }
-  }
-}
-
-.view-mode-keynote_speaker {
-  .field-name-field-photo {
-    @include full-size-image;
-  }
-  .field-name-title h2 {
-    font-family: $font-family-main-bold;
-    color: $color-theme-3;
-    text-transform: uppercase;
-    font-size: 19px;
-  }
-  .field-name-keynote-speaker-job-company {
-    font-family: $font-family-main-bold;
-    color: $color-theme-3;
-    text-transform: uppercase;
-    font-size: 12px;
-  }
-  .field-name-field-short-description {
-    margin: 10px 0;
-    font-size: $font-size-base;
-    font-family: $font-family-main;
-    color: $color-theme-3;
-    padding-top: 15px;
-    @include green-line;
-    &:after {
-      left: 40px;
-    }
-  }
-}
-
-.view-mode-teaser {
-  .field-name-title a {
-    color: $color-theme-3;
-  }
-}
-
-.view-mode-list_of_pages_navpage_ {
-  @include mode-list;
 }

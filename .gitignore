@@ -2,6 +2,8 @@
 custom/*
 # ... except "documentation".
 !custom/example
+# Ignore all compiled CSS.
+css/*
 
 node_modules
 

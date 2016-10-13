@@ -7,7 +7,7 @@
 
 function himss17_add_css() {
 	if ($sitecode = core_get_sitecode()) {
-		drupal_add_css(path_to_theme() . '/css/style-' . $sitecode . '.css');
+		drupal_add_css(path_to_theme() . '/css/style-' . $sitecode . '.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'weight' => 50));
 	}
 }
 

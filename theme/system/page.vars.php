@@ -11,6 +11,7 @@
  */
 function _default_himss17_preprocess_page(&$variables) {
   // Set parallax header image in style.
+	$variables['parallax_header_style'] = '';
   if (!drupal_is_front_page()) {
     $image_url = '';
     // For node page let's use this node field_parallax_header field.

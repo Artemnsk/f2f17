@@ -275,7 +275,7 @@
 }
 
 // images
-
+// TODO: Still used?
 @mixin full-size-image {
   img {
     max-width: 100%;
@@ -336,35 +336,23 @@
   }
 }
 
-@mixin override-container {
-  max-width: inherit !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-top: 0;
-  margin-bottom: 0;
-  border: 0;
-  text-shadow: none;
-  width: 100%;
-  //position      : relative;
-}
-
-@mixin main-search-block {
+@mixin main-search-block() {
   float: right;
   z-index: 10;
-  height: 100px;
+  height: $navbar-height;
   form {
-    width: 90px;
-    position: static;
+    width: $navbar-height;
+    position: relative;
     * {
       box-sizing: border-box;
       @include element-transition(all 0.3s ease);
     }
     .views-widget-filter-search_api_views_fulltext {
       position: absolute;
-      right: 90px;
+      overflow: hidden;
+      right: $navbar-height;
       top: 0;
       z-index: 1;
-      height: 100px;
       padding: 0;
       width: 0;
       .form-control {
@@ -389,7 +377,7 @@
       z-index: 10;
       padding: 0;
       width: 100%;
-      height: 100px;
+      height: $navbar-height;
       .form-submit {
         margin: 0;
         padding: 0;
@@ -401,15 +389,16 @@
         font-size: 0;
         outline: none !important;
         &:after {
+          $search-icon-size: 30px;
           display: block;
           position: absolute;
           content: "\f002";
           font-family: $font-family-icon;
-          font-size: 30px;
-          color: $color-tertiary-2-dark;
-          width: 100%;
+          font-size: $search-icon-size;
+          color: $color-tertiary-1;
           text-align: center;
-          top: 30px;
+          top: ($navbar-height - $search-icon-size) / 2;
+          right: ($navbar-height - $search-icon-size) / 2;
         }
       }
     }
@@ -441,7 +430,8 @@
   }
 }
 
-@mixin carousel-block {
+// todo: what is it?
+@mixin carousel-block() {
   li {
     border: none;
     @include border-radius(0);
@@ -492,7 +482,7 @@
   }
 }
 
-@mixin parallax-block {
+@mixin parallax-block() {
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
@@ -501,118 +491,7 @@
   padding-right: 15px;
 }
 
-@mixin menu-style($color) {
-  > li {
-    position: static;
-    > a {
-      height: 100px;
-      display: table-cell;
-      vertical-align: middle;
-      color: $color-tertiary-1;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-family: $font-family-main-bold;
-      font-size: 16px;
-      &:hover {
-        background-color: $color-theme-1;
-        color: $color-tertiary-1;
-      }
-    }
-    &.open > ul.dropdown-menu {
-      border-top: 4px solid $color-theme-1;
-    }
-    ul,
-    ul.dropdown-menu {
-      position: absolute;
-      border: none;
-      width: 100%;
-      background: $color-tertiary-2-dark;
-      color: $color-tertiary-1;
-      //padding       : 40px 0;
-      border-radius: 0;
-      .block-block {
-        max-width: 280px;
-        float: left;
-        margin: 0 40px 20px 0;
-        .img-responsive {
-          border: 1px solid $color-tertiary-1;
-          @include border-radius(2px);
-        }
-        h3 {
-          @include title-style($color-theme-1, 24px);
-        }
-      }
-      .container > li {
-        display: inline-block;
-        width: 33%;
-        float: left;
-        padding-right: 20px;
-        > a {
-          display: block;
-          position: relative;
-          @include title-style($color-theme-1, 24px);
-          @include white-line;
-          &:hover {
-            box-shadow: none;
-          }
-        }
-        ul.dropdown-menu {
-          @include li-elem;
-          li {
-            padding: 10px 20px 10px 0;
-            margin: 0;
-            border-bottom: 1px solid $color-theme-4;
-          }
-        }
-        a + ul.dropdown-menu {
-          margin-top: 15px;
-          margin-bottom: 15px;
-          border-bottom: 1px solid $color-theme-4;
-        }
-      }
-    }
-    &.open {
-      > a {
-        background-color: $color-theme-1;
-        color: $color-tertiary-1;
-      }
-    }
-  }
-  @include breakpoint('l-') {
-    > li {
-      ul,
-      ul.dropdown-menu {
-        padding: 0;
-        .block-block {
-          display: none;
-        }
-        .container > li {
-          display: block;
-          width: 100%;
-          float: none;
-          padding-right: 0;
-          > a {
-            display: block;
-            position: relative;
-            @include title-style($color-theme-1, 24px);
-            @include white-line;
-          }
-          ul.dropdown-menu {
-            @include li-elem;
-            li {
-              padding: 10px 0;
-              margin: 0;
-              border-bottom: 1px solid #555;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@mixin list-block {
+@mixin list-block() {
   overflow: hidden;
   text-align: center;
   margin: 100px auto;
@@ -621,5 +500,75 @@
   }
   @include breakpoint('m-') {
     margin: 50px auto;
+  }
+}
+
+@mixin accordion() {
+  .accordion {
+    @include element-transition(all 0.3s ease);
+    border-bottom: 1px solid $color-tertiary-2-base;
+    h2 {
+      border-radius: 0;
+      line-height: normal;
+      padding: 20px 20px 15px;
+      margin: 0;
+      text-align: left;
+      text-transform: uppercase;
+      color: $color-theme-1;
+      cursor: pointer;
+      letter-spacing: 1px;
+      font-family: $font-family-main-bold;
+      font-size: $font-size-base;
+      position: relative;
+      &:hover {
+        cursor: pointer;
+        color: $color-tertiary-1;
+        background-color: $color-theme-1;
+      }
+      &:after {
+        font-family: $font-family-icon;
+        position: absolute;
+        content: "\f107";
+        display: block;
+        right: 10px;
+        top: 15px;
+        font-size: 26px;
+      }
+    }
+    .accordion-content {
+      @include element-transition(all 0.3s ease);
+      height: 0;
+      padding: 0;
+      overflow: hidden;
+      background: $color-tertiary-1;
+      color: $color-tertiary-2-dark;
+      text-align: left;
+      line-height: 1.5;
+      ul, ol {
+        margin: 0;
+      }
+    }
+
+    // open accordion
+
+    &.expanded {
+      h2 {
+        cursor: pointer;
+        color: $color-tertiary-1;
+        background-color: $color-theme-1;
+        &:after {
+          top: 13px;
+          content: "\f106";
+        }
+      }
+      .accordion-content.open {
+        height: auto;
+        padding: 40px;
+      }
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 }

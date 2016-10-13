@@ -18,11 +18,13 @@ gulp.task('default', function () {
   // Code for the default task
 });
 
+gulp.task('watch', ['sass', '_watcher']);
+
 // Watch for changes in scss files and recompiles them.
-gulp.task('watch', function () {
+gulp.task('_watcher', function () {
 	// TODO: ensure that argv.site set.
 	var site = argv.site;
-  gulp.watch('./custom/' + site + '/sass/site/**/*.scss', ['sass']);
+  gulp.watch(['./custom/' + site + '/sass/site/**/*.scss', './sass/default/**/*.scss'], ['sass']);
 });
 
 /**

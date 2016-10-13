@@ -1,4 +1,9 @@
 body {
+  background: $color-tertiary-1;
+  padding: 0;
+  margin: 0;
+  font-family: $font-family-main;
+  color: $color-theme-3;
   & * {
     transition: all 0s;
   }
@@ -12,45 +17,31 @@ body {
     z-index: 1000;
   }
   header.navbar {
-    &.affix-top {
-      position: absolute !important;
-    }
-    &.affix {
-      position: fixed !important;
-      top: 0 !important;
-    }
+    width: 100%;
+    padding: 0;
+    // TODO: I overrided some style. Maybe even Bootstrap's. Not sure.
+    max-width: 100% !important;
+    margin-top: 0 !important;
+    border: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
     // Needed for smooth slideDown/Up.
     min-height: 0;
-    // Needed to recount top parameter asap (otherwise JS works buggy).
-    transition: background 0.3s ease;
-    .dropdown-menu .expand-wrapper-outer {
-      padding: 40px 0;
-      overflow-y: auto;
+    &.affix-top {
+      position: absolute;
+    }
+    &.affix {
+      position: fixed;
+      // TODO: affix library doesn't work properly?
+      top: 0 !important;
     }
   }
-  background: $color-tertiary-1;
-  padding: 0;
-  margin: 0;
-  font-family: $font-family-main;
-  color: $color-theme-3;
-  * {
-    box-sizing: border-box;
-    @include element-transition(all 0.3s ease);
-  }
-  section {
-    .field-name-body,
-    .field-name-field-cover-image {
-      margin-bottom: 40px;
-      text-align: center;
-      @include full-size-image;
-    }
-    .field-name-body {
-      text-align: left;
-      .field-item > h2 {
-        font-family: $font-family-main-bold;
-        margin-bottom: 20px;
-      }
-    }
+  .conference-cover {
+    @include parallax-block();
+    height: 360px;
+    background-color: #428BCA;
+    color: #FFF;
+    background-image: url("../assets/img/conf-cover.jpg");
   }
   .mobile-left {
     @include element-transition($mobile-menu-transition);

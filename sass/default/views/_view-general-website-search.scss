@@ -1,28 +1,4 @@
-// to _page.scss
-body {
-  .main-container.container {
-    padding: 100px 15px;
-    .row {
-      section {
-        > ol,
-        > h1 {
-          display: none;
-        }
-        .node h1 {
-          text-align: center;
-          font-size: $font-size-h1;
-          font-family: $font-family-main-bold;
-          color: $color-theme-1;
-          text-transform: uppercase;
-          border-bottom: none;
-        }
-      }
-    }
-  }
-}
-
-// to /views
-.page-site-search .region-content {
+.view.view-general-website-search.view-display-id-search_page {
   #views-exposed-form-general-website-search-search-page {
     position: relative;
     margin-bottom: 20px;
@@ -93,12 +69,4 @@ body {
       }
     }
   }
-}
-
-// to _page.scss
-.conference-cover {
-  height: 360px;
-  background-color: #428BCA;
-  color: #FFF;
-  background-image: url("../assets/img/conf-cover.jpg");
 }

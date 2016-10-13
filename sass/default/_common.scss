@@ -1,3 +1,7 @@
+html body.admin-menu {
+  margin-top: 0 !important;
+}
+
 * {
   [class^="icon-"]:before,
   [class*=" icon-"]:before {
@@ -40,13 +44,18 @@
     text-decoration: none;
     outline: none;
   }
+  .btn,
+  .btn.btn-default,
+  .btn.btn-info {
+    @include btn-style();
+  }
   .boxes-box-controls {
     display: none;
   }
   input[type=text],
   input[type=email],
   input[type=password] {
-    @include input-style;
+    @include input-style();
   }
   address {
     margin: 10px 0;
@@ -124,7 +133,7 @@ body {
 }
 
 a.btn-link {
-  @include btn-style;
+  @include btn-style();
   i {
     display: none;
   }
@@ -263,17 +272,4 @@ ul.tabs--primary.btn-group {
   }
 }
 
-.parallax-block {
-  @include parallax-block;
-}
-
-.map-block {
-  height: 550px;
-  background-image: url("../assets/img/map.png");
-  @include breakpoint('m-') {
-    background-position: 1111px;
-  }
-  @include breakpoint('s-') {
-    background-position: 979px;
-  }
-}
+@include accordion();
