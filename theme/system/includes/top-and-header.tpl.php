@@ -1,5 +1,7 @@
 <?php if (!empty($page['region_page_top'])): ?>
+<div class="top-region-wrapper">
   <?php print render($page['region_page_top']); ?>
+</div>
 <?php endif; ?>
 
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">

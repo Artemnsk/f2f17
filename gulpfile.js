@@ -34,8 +34,12 @@ gulp.task('_watcher', function () {
  */
 
 gulp.task('sass', function () {
-	// TODO: ensure that argv.site set.
 	var site = argv.site;
+	if (!site) {
+		console.log("ERROR:", "You must provide the site parameter.");
+		console.log("gulp sass --site SITENAME")
+		return false;
+	}
 	return gulp.src(['./custom/' + site + '/sass/style.scss'])
 		.pipe(insert.transform(function(contents, file) {
 			return '$sitename: ' + site + ';' + contents;
